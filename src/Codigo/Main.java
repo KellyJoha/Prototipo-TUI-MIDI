@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Codigo;
 
 import java.awt.Image;
@@ -13,10 +8,16 @@ import java.util.logging.Logger;
 import javax.sound.midi.*;
 import javax.swing.ImageIcon;
 
-/**
+/******************************************************************************
  *
- * @author KellyJ
- */
+ * @author Kelly Johana Cordoba Quintana
+ * kelly.johana.cordoba@correounivalle.edu.co
+ * 
+*****************************************************************************
+ * 
+ * Main, contiene la vista de la GUI.
+ * 
+ ******************************************************************************/
 public class Main extends javax.swing.JFrame {
 
 
@@ -128,12 +129,7 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
     
-    
-  
-    
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String args[]) throws MidiUnavailableException {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -158,10 +154,6 @@ public class Main extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        
-    
-     
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {

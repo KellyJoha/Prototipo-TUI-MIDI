@@ -1,4 +1,3 @@
-
 package Codigo;
 
 import javax.sound.midi.MidiMessage;
@@ -8,14 +7,17 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
 
-/**
+/******************************************************************************
  *
- * @author KellyJ
- */
-/*****************************************************************************
-    EntradaMIDI, Identifica el pin tocado por el usuario, de acuerdo
-    a ello, cambia la imagen y genera el sonido
-    *************************************************************************/
+ * @author Kelly Johana Cordoba Quintana
+ * kelly.johana.cordoba@correounivalle.edu.co
+ * 
+ *****************************************************************************
+ * 
+ * EntradaMIDI, Identifica el pin tocado por el usuario, de acuerdo
+ * a ello, cambia la imagen y genera el sonido.
+ * 
+ ******************************************************************************/
  class EntradaMIDI implements Receiver {
     public String name;
     ShortMessage m;
@@ -68,12 +70,8 @@ import javax.swing.ImageIcon;
        */
         
         byte[] aMsg = msg.getMessage();
-       
-        //System.out.println(Arrays.toString(msg.getMessage()));
- 
+        
          if ((aMsg[i + 1])== 48) {
-             
-            //Permite detener el sonido de otro pin, en caso de estar sonando 
              try 
             {
                 audio.stop();
@@ -85,13 +83,11 @@ import javax.swing.ImageIcon;
             Reproducir("Gallo");
             System.out.println("PIN 11");
             Main.Etiqueta.setText("Gallo");
-            Main.Imagen.setIcon(imagenE11);
-            
+            Main.Imagen.setIcon(imagenE11);           
              
         }
                   
-        if ((aMsg[i + 1])== 49){
-            
+        if ((aMsg[i + 1])== 49) {            
             try 
             {
                 audio.stop();
@@ -106,8 +102,7 @@ import javax.swing.ImageIcon;
             Main.Imagen.setIcon(imagenE10);
         }
         
-        if ((aMsg[i + 1])== 50){
-                     
+        if ((aMsg[i + 1])== 50) {                     
              try 
             {
                 audio.stop();
@@ -123,8 +118,7 @@ import javax.swing.ImageIcon;
             Main.Imagen.setIcon(imagenE09);         
         }
         
-        if ((aMsg[i + 1])== 51){//ok
-            
+        if ((aMsg[i + 1])== 51) {            
             try 
             {
                 audio.stop();
@@ -136,11 +130,10 @@ import javax.swing.ImageIcon;
             Reproducir("Oveja");
             System.out.println("PIN 08");
             Main.Etiqueta.setText("Oveja");
-            Main.Imagen.setIcon(imagenE08);
-           
+            Main.Imagen.setIcon(imagenE08);           
         }
         
-        if ((aMsg[i + 1])== 52){//ok
+        if ((aMsg[i + 1])== 52) {
             try 
             {
                 audio.stop();
@@ -155,7 +148,7 @@ import javax.swing.ImageIcon;
             Main.Imagen.setIcon(imagenE07);
         }
         
-        if ((aMsg[i + 1])== 53){//ok
+        if ((aMsg[i + 1])== 53){
             try 
             {
                 audio.stop();
@@ -170,7 +163,7 @@ import javax.swing.ImageIcon;
             Main.Imagen.setIcon(imagenE06);
         }
         
-        if ((aMsg[i + 1])== 54){//ok
+        if ((aMsg[i + 1])== 54){
             try 
             {
                 audio.stop();
@@ -185,7 +178,7 @@ import javax.swing.ImageIcon;
             Main.Imagen.setIcon(imagenE05);
         }
         
-        if ((aMsg[i + 1])== 55){//ok
+        if ((aMsg[i + 1])== 55){
             try 
             {
                 audio.stop();
@@ -200,7 +193,7 @@ import javax.swing.ImageIcon;
             Main.Imagen.setIcon(imagenE04);
         }
         
-        if ((aMsg[i + 1])== 56){//ok
+        if ((aMsg[i + 1])== 56) {
             try 
             {
                 audio.stop();
@@ -215,7 +208,7 @@ import javax.swing.ImageIcon;
             Main.Imagen.setIcon(imagenE03);
         }
         
-        if ((aMsg[i + 1])== 57){//ok
+        if ((aMsg[i + 1])== 57) {
             try 
             {
                 audio.stop();
@@ -230,7 +223,7 @@ import javax.swing.ImageIcon;
             Main.Imagen.setIcon(imagenE02);
         }
         
-        if ((aMsg[i + 1])== 58){//ok
+        if ((aMsg[i + 1])== 58){
             try 
             {
                 audio.stop();
@@ -245,7 +238,7 @@ import javax.swing.ImageIcon;
             Main.Imagen.setIcon(imagenE01);
         }
         
-        if ((aMsg[i + 1])== 59){  //ok
+        if ((aMsg[i + 1])== 59) {  
             try 
             {
                 audio.stop();
@@ -258,9 +251,7 @@ import javax.swing.ImageIcon;
             System.out.println("PIN 00");
             Main.Etiqueta.setText("Elefante");
             Main.Imagen.setIcon(imagenE00);
-
-        }
-       
+        }       
     }
     
     @Override
@@ -269,16 +260,14 @@ import javax.swing.ImageIcon;
     }
     
     //El metodo recibe el nombre del archivo que va reproducir.
-     public void Reproducir(String nombreArchivo)
-    {        
-       try
-       {
+     public void Reproducir(String nombreArchivo) {        
+       try {
          audio=AudioSystem.getClip();
          audio.open(AudioSystem.getAudioInputStream(getClass().getResourceAsStream(ruta +  nombreArchivo + ".wav" ) ) );
          audio.start();
-       }catch(Exception ex){
+       } catch(Exception ex) {
             System.err.println( ex.getMessage() );
         }
     }
-    }
+}
      

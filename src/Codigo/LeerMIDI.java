@@ -1,22 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Codigo;
 
-//Keyboard LeerMIDI
 import java.io.IOException;
 import javax.sound.midi.*;
 import java.util.List;
 
-    public class LeerMIDI
-{
+/******************************************************************************
+ *
+ * @author Kelly Johana Cordoba Quintana
+ * kelly.johana.cordoba@correounivalle.edu.co
+ * 
+*****************************************************************************
+ * 
+ * LeerMIDI, Identifica el controlador MIDI activo,
+ * 
+ ******************************************************************************/
+
+    public class LeerMIDI {
   
     MidiDevice dispositivo;
    
-    public LeerMIDI ()  throws IOException
-    {
+    public LeerMIDI ()  throws IOException {
         
         MidiDevice.Info[] infos = MidiSystem.getMidiDeviceInfo();
         
@@ -29,13 +32,11 @@ import java.util.List;
             dispositivo.open();
             trans.setReceiver(new EntradaMIDI(dispositivo.getDeviceInfo().toString()));
 
-        } catch (MidiUnavailableException e) {}
-    }
+          } catch (MidiUnavailableException e) {}
+        }
     System.out.println();
 
-}
-
-   
+    }
 }
      
 
